@@ -10,6 +10,24 @@
        {
            background:none;
        }
+
+       #start-button {
+           display: none;
+           position: fixed;
+           border: none;
+           padding: 5vw;
+           font-size: 5vw;
+           top: 70%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           z-index: 5;
+           background-color: black;
+           color: #fff;
+           border: 1px solid #fff;
+           border-radius: 4px;
+           cursor: pointer;
+           text-transform: uppercase;
+       }
    </style>
   
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
@@ -17,11 +35,12 @@
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <a-scene
+    <button id="start-button">Clique aqui para iniciar</button>
+    <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: true;"
             renderer="logarithmicDepthBuffer: true;"
@@ -34,28 +53,64 @@
                     id="Model"
                     src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/asset.gltf"></a-asset-item>
             </a-assets>
+      
+      
+      
+      <a-assets>
+                <a-asset-item
+                    id="Model2"
+                        src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Character.gltf"></a-asset-item>
+            </a-assets>
+      
+      
 
             <a-marker
                 id="animated-marker"
                 type="pattern"
-                url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
+         url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;">
                 <a-entity
-                    scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
+               scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
                     rotation="0 180 0"
                     position="0 0 0.5"
                     animation-mixer="loop: repeat"
                     gltf-model="#Model"
                     class="clickable"
-                    gesture-handler
-                ></a-entity>
+                    gesture-handler></a-entity>
+               
+                <a-entity
+               scale="0.2 0.2 0.2"
+                    rotation="-90 0 0"
+                    position="0 0.5 0.41"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#Model2"
+                    class="clickable"
+                    gesture-handler></a-entity>
+              
             </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
-   
-  
-</body>
+
+        <script>
+            window.sound = new Howl({ src: ['https://universal-event.s3-sa-east-1.amazonaws.com/ARAUDIO.mpeg'] });
+            var buttonElement = document.getElementById('start-button');
+            
+            buttonElement.addEventListener('click', function (event) {
+                if (window.soundId) {
+                    window.sound.stop(window.soundId);
+                }
+
+                window.soundId = window.sound.play();
+
+                event.target.style = 'display: none';
+            });
+            // camera-init markerFound
+            window.addEventListener('markerFound', function () {
+                buttonElement.style = 'display: block';
+            })
+        </script>
+</body
 </html>
