@@ -2,7 +2,7 @@
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githubusercontent.com/n5ro/aframe-extras/master/dist/aframe-extras.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <style>
@@ -62,6 +62,11 @@
                         src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Character.gltf"></a-asset-item>
             </a-assets>
       
+      <a-asset-item
+                    id="Model3"
+                                src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/scene.gltf"></a-asset-item>
+            </a-assets>
+      
       
 
             <a-marker
@@ -87,6 +92,14 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#Model2"
                     class="clickable"
+                    gesture-handler></a-entity>
+              
+              <a-entity
+               scale="0.5 0.5 0.5"
+                    rotation="-90 0 0"
+                    position="0 0.9 1.1"
+                    animation-mixer="clampWhenFinished:false"
+                    gltf-model="#Model3"
                     gesture-handler></a-entity>
               
             </a-marker>
