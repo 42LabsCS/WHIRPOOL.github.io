@@ -53,23 +53,55 @@
                     id="Model"
                     src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/asset.gltf"></a-asset-item>
             </a-assets>
+      
+      
+      
+      <a-assets>
+                <a-asset-item
+                    id="Model2"
+                        src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Character.gltf"></a-asset-item>
+            </a-assets>
+      
+      <a-asset-item
+                    id="Model3"
+                                src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/scene.gltf"></a-asset-item>
+            </a-assets>
+      
+      
 
             <a-marker
                 id="animated-marker"
                 type="pattern"
-                url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
+         url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;">
                 <a-entity
-                    scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
-                    rotation="0 180 0"
+               scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
+                    rotation="-5 180 0"
                     position="0 0 0.5"
                     animation-mixer="loop: repeat"
                     gltf-model="#Model"
                     class="clickable"
-                    gesture-handler
-                ></a-entity>
+                    gesture-handler></a-entity>
+               
+                <a-entity
+               scale="0.2 0.2 0.2"
+                    rotation="-90 0 0"
+                    position="0 0.3 0.42"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#Model2"
+                    class="clickable"
+                    gesture-handler></a-entity>
+              
+              <a-entity
+               scale="0.5 0.5 0.5"
+                    rotation="-90 0 0"
+                    position="0 0.9 1.1"
+                    animation-mixer="clampWhenFinished:false"
+                    gltf-model="#Model3"
+                    gesture-handler></a-entity>
+              
             </a-marker>
 
             <a-entity camera></a-entity>
