@@ -2,7 +2,7 @@
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githubusercontent.com/n5ro/aframe-extras/master/dist/aframe-extras.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <style>
@@ -40,72 +40,60 @@
 
 <body>
     <button id="start-button">Iniciar</button>
-    <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: true;"
-            renderer="logarithmicDepthBuffer: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
-            gesture-detector>
-            <a-assets>
-                <a-asset-item
-                    id="Model"
-                    src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/asset.gltf"></a-asset-item>
-            </a-assets>
-      
-      
-      
-      <a-assets>
-                <a-asset-item
-                    id="Model2"
-                        src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Speaker.gltf"></a-asset-item>
-            </a-assets>
-      
-      <a-asset-item
-                    id="Model3"
-                                src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Cortina.glb"></a-asset-item>
-            </a-assets>
-      
-      
+    <a-scene vr-mode-ui="enabled: false;"
+             loading-screen="enabled: true;"
+             renderer="logarithmicDepthBuffer: true;"
+             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+             id="scene"
+             embedded
+             gesture-detector>
+        <a-assets>
+            <a-asset-item id="Model"
+                          src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/asset.gltf"></a-asset-item>
+        </a-assets>
 
-            <a-marker
-                id="animated-marker"
-                type="pattern"
-         url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;">
-                <a-entity
-               scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
-                    rotation="-5 180 0"
-                    position="0 0 0.5"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#Model"
-                    class="clickable"
-                    gesture-handler></a-entity>
-               
-                <a-entity
-               scale="0.2 0.2 0.2"
-                    rotation="-90 0 0"
-                    position="0 0.3 0.42"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#Model2"
-                    class="clickable"
-                    gesture-handler></a-entity>
-              
-              <a-entity
-               scale="0.5 0.5 0.5"
-                    rotation="-90 0 0"
-                    position="0 0.9 1.1"
-                    animation-mixer="clampWhenFinished:false"
-                    gltf-model="#Model3"
-                    gesture-handler></a-entity>
-              
-            </a-marker>
+        <a-assets>
+            <a-asset-item id="Model2"
+                          src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Speaker.gltf"></a-asset-item>
+        </a-assets>
 
-            <a-entity camera></a-entity>
-        </a-scene>
+        <a-asset-item id="Model3"
+                      src="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/Cortina.glb"></a-asset-item>
+        </a-assets>
+
+
+        <a-marker id="animated-marker"
+                  type="pattern"
+                  url="https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/marker.patt"
+                  raycaster="objects: .clickable"
+                  emitevents="true"
+                  cursor="fuse: false; rayOrigin: mouse;">
+            <a-entity scale="0.16000169890677987 0.16000169890677987 0.16000169890677987"
+                      rotation="-5 180 0"
+                      position="0 0 0.5"
+                      animation-mixer="loop: repeat"
+                      gltf-model="#Model"
+                      class="clickable"
+                      gesture-handler></a-entity>
+
+            <a-entity scale="0.2 0.2 0.2"
+                      rotation="-90 0 0"
+                      position="0 0.3 0.42"
+                      animation-mixer="loop: repeat"
+                      gltf-model="#Model2"
+                      class="clickable"
+                      gesture-handler></a-entity>
+
+            <a-entity scale="0.5 0.5 0.5"
+                      rotation="-90 0 0"
+                      position="0 0.9 1.1"
+                      animation-mixer="clampWhenFinished:false"
+                      gltf-model="#Model3"
+                      gesture-handler></a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
 
         <script>
             window.sound = new Howl({ src: [
