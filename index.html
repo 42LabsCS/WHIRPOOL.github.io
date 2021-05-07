@@ -2,40 +2,39 @@
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <script src="https://raw.githubusercontent.com/n5ro/aframe-extras/master/dist/aframe-extras.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.10.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <style>
-       .a-enter-vr-button
-       {
-           background:none;
-       }
+    <style>
+        .a-enter-vr-button {
+            background: none;
+        }
 
-       #start-button {
-           display: none;
-           position: fixed;
-           border: none;
-           padding: 5vw;
-           font-size: 5vw;
-           top: 70%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-           z-index: 5;
-           background-color: black;
-           color: #fff;
-           border: 1px solid #fff;
-           border-radius: 4px;
-           cursor: pointer;
-           text-transform: uppercase;
-       }
-   </style>
-  
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
+        #start-button {
+            display: none;
+            position: fixed;
+            border: none;
+            padding: 5vw;
+            font-size: 5vw;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            background-color: black;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -97,10 +96,10 @@
 
         <script>
             window.sound = new Howl({ src: [
-                '/assets/audio.mpeg',
-                '/assets/audio.ogg',
-                '/assets/audio.wav',
-                '/assets/audio.aac',
+                'https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/audio.mpeg',
+                'https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/audio.ogg',
+                'https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/audio.wav',
+                'https://raw.githubusercontent.com/42LabsCS/Whirpool.github.io/main/assets/audio.aac',
             ] });
             var buttonElement = document.getElementById('start-button');
             
